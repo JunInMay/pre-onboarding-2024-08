@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+  },
+  "include": [
+    "./src/**/*.ts",
+    "./src/**/**/*.ts",
+    "./@types/**/*.d.ts",
+    "./src/*.spec.ts"  // 추가
+  ],
+  "exclude": ["node_modules", "test", "dist", "**/*spec.ts", ".next"]
+}

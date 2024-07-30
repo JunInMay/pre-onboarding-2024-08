@@ -1,0 +1,28 @@
+# database를 위한 docker-compose.yml 준비
+version: "3.7"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: nest-next-db
+    ports:
+      - "3306:3306"
+    volumes:
+      - nest-next-db-data:/var/lib/mysql
+      - ./configModule/init/:/docker-entrypoint-initdb.d
+    command: ['mysqld', '--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    environment:
+      - MYSQL_ROOT_PASSWORD=pwd1234!
+      - MYSQL_MULTIPLE_DATABASES=MY_SERVICE
+      - MYSQL_USER=service
+      - MYSQL_PASSWORD=service1234!@#
+      # - TZ=Asia/Seoul
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
+
+volumes:
+  nest-next-db-data:
