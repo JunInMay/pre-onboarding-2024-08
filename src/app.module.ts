@@ -5,6 +5,9 @@ import { AppService } from './app.service';
 import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
+import { UserController } from './user/user.controller';
+import { UserService } from './user/user.service';
 
 @Module({
   imports: [
@@ -18,8 +21,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       database: 'MY_SERVICE',
       synchronize: false,
     }),
+    UserModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [AppController, UserController],
+  providers: [AppService, UserService],
 })
 export class AppModule {}
