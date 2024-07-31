@@ -6,6 +6,20 @@ const Home: FC = () => {
     <>
       <h1>Home</h1>
       <Link href="user/home">Go to User Home</Link>
+      <Link
+        href={'signup'}
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          backgroundColor: '#0070f3',
+          color: '#fff',
+          textAlign: 'center',
+          textDecoration: 'none',
+          borderRadius: '5px',
+        }}
+      >
+        회원 가입
+      </Link>
     </>
   );
 };

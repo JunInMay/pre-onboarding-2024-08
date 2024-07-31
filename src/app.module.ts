@@ -6,8 +6,6 @@ import { RenderModule } from 'nest-next';
 import Next from 'next';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UserModule } from './user/user.module';
-import { UserController } from './user/user.controller';
-import { UserService } from './user/user.service';
 
 @Module({
   imports: [
@@ -19,11 +17,12 @@ import { UserService } from './user/user.service';
       username: 'service',
       password: 'service1234!@#',
       database: 'MY_SERVICE',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'], // 엔티티 경로 설정
       synchronize: false,
     }),
     UserModule,
   ],
-  controllers: [AppController, UserController],
-  providers: [AppService, UserService],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}

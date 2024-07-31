@@ -10,4 +10,16 @@ export class AppController {
   home() {
     return {};
   }
+
+  @Get('signup')
+  @Render('signup')
+  signup() {
+    return {};
+  }
+
+  @Get('home')
+  @Render('board')
+  board() {
+    return {};
+  }
 }
