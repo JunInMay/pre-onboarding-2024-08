@@ -1,4 +1,12 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Param,
+  Post,
+} from '@nestjs/common';
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
@@ -16,6 +24,15 @@ export class UserController {
     const result = this.userService.createUser(createUserDto);
     console.log('res : ', result);
     return result;
+  }
+
+  // 로그인
+  @Post('signin')
+  @HttpCode(HttpStatus.OK) // 상태 코드 200 OK 명시
+  async signin(@Body() signinDto: { userId: string; password: string }) {
+    const token = await this.userService.signin(signinDto);
+    console.log('controller, token:', token);
+    return { accessToken: token };
   }
 
   // 모든 사용자 조회

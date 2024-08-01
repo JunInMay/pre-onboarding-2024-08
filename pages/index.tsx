@@ -5,7 +5,20 @@ const Home: FC = () => {
   return (
     <>
       <h1>Home</h1>
-      <Link href="user/home">Go to User Home</Link>
+      <Link
+        href={'signin'}
+        style={{
+          display: 'inline-block',
+          padding: '10px 20px',
+          backgroundColor: '#0070f3',
+          color: '#fff',
+          textAlign: 'center',
+          textDecoration: 'none',
+          borderRadius: '5px',
+        }}
+      >
+        로그인
+      </Link>
       <Link
         href={'signup'}
         style={{

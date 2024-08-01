@@ -17,6 +17,12 @@ export class AppController {
     return {};
   }
 
+  @Get('signin')
+  @Render('signin')
+  signin() {
+    return {};
+  }
+
   @Get('home')
   @Render('board')
   board() {
